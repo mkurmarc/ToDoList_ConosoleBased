@@ -26,18 +26,17 @@ while (input !== 'quit' && input !== 'q') {
     }
 
     else if (input === 'delete') {
-        let deleteInput = prompt('Enter the index number of to do item you want to delete.');
-        toDoList.splice(deleteInput, 1); // removes element at index input by user
-        console.log('Todo Item Removed');
-        input = 'delete';
+        const index = parseInt(prompt('Enter the index number of to do item you want to delete.'));
 
-        // deleteInput = parseInt(deleteInput);
+        if ((index !== NaN) && (index < toDoList.length)) {
+            const deleted = toDoList.splice(index, 1); // removes element at index input by user
+            console.log(`OK, ${deleted} Item Deleted`);
+            
+        } else {
+            console.log('Unknown index.');
+            
+        }
 
-        // if (deleteInput === 'number') {
-        //     toDoList.splice(deleteInput, 1); // removes element at index input by user
-        //     console.log('Todo Item Removed');
-
-        // } else input = 'delete';
     }
 
     else continue;
